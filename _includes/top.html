@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>{% if page.title %}{{ page.title }} / {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="/css/blog.css" type="text/css"/>
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/rss.xml"/>
+</head>
+<body>
+
+<div class="content">
+
+<div class="header">
+{% if page.layout == 'posts' and paginator.page == 1 %}
+    <h2>{{ site.title }}</h2>
+{% else %}
+    <h2><a href="/">{{ site.title }}</a></h2>
+{% endif %}
+{% if site.description %}
+    <div class="description">{{ site.description }}</div>
+{% endif %}
+</div>
+

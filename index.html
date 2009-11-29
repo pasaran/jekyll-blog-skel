@@ -1,0 +1,30 @@
+---
+layout: posts
+---
+
+{% for post in paginator.posts %}
+<div class="post">
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<div class="date">{{ post.date | date: "%d.%m.%Y" }}</div>
+{{ post.content }}
+</div>
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<div class="pager">
+    Страницы:
+{% if paginator.previous_page == 1 %}
+    <span class="prev">← <a href="/">предыдущая</a></span>
+{% elsif paginator.previous_page > 1 %}
+    <span class="prev">← <a href="/page{{ paginator.previous_page }}">предыдущая</a>
+{% else %}
+    <span class="prev disabled">← предыдущая</span>
+{% endif %}
+{% if paginator.next_page %}
+    <span class="next"><a href="/page{{ paginator.next_page }}">следующая</a> →</span>
+{% else %}
+    <span class="next disabled">следующая →</span>
+{% endif %}
+</div>
+{% endif %}
+

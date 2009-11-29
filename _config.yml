@@ -1,0 +1,6 @@
+title: Мой уютный бложег
+description: Небольшое и необязательное описание моего бложега
+url: http://my.blog.com
+permalink: /:year/:month/:day/:title/
+paginate: 5
+

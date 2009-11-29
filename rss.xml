@@ -1,0 +1,29 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0">
+    <channel>
+        <title>{{ site.title }}</title>
+        {% if site.description %}
+        <description>{{ site.description }}</description>
+        {% endif %}
+        <link>{{ site.url }}</link>
+
+        {% for post in site.posts %}
+        {% if forloop.index <= 20 %}
+        <item>
+            <title>{{ post.title }}</title>
+            <guid isPermaLink="false">{{ post.id }}</guid>
+            <link>{{ site.url }}{{ post.url }}</link>
+            <description>{{ post.content | xml_escape }}</description>
+            <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %Z" }}</pubDate>
+            {% for category in post.categories %}
+                <category>{{ category }}</category>
+            {% endfor %}
+        </item>
+        {% endif %}
+        {% endfor %}
+    </channel>
+</rss>
+
